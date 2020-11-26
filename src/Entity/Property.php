@@ -33,6 +33,11 @@ class Property
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $propertyType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="property")
+     */
     private $city;
 
     /**
@@ -197,12 +202,7 @@ class Property
     private $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PropertyType", inversedBy="property")
-     */
-    private $propertyType;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="property",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="property", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $images;
 
@@ -227,6 +227,8 @@ class Property
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->updated_at = new \DateTime();
+
     }
 
     public function getId(): ?int
@@ -318,18 +320,6 @@ class Property
         return $this;
     }
 
-    public function getPropertyType(): ?PropertyType
-    {
-        return $this->propertyType;
-    }
-
-    public function setPropertyType(?PropertyType $propertyType): self
-    {
-        $this->propertyType = $propertyType;
-
-        return $this;
-    }
-
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
@@ -348,6 +338,14 @@ class Property
     public function getImages(): Collection
     {
         return $this->images;
+    }
+
+    public function getImage(): ?Image
+    {
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+        return $this->images->first();
     }
 
     public function addImage(Image $image): self
@@ -725,7 +723,29 @@ class Property
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getPictureFiles()
+    {
+        return $this->pictureFiles;
+    }
+
+    /**
+     * @param mixed $pictureFiles
+     * @return Property
+     */
+    public function setPictureFiles($pictureFiles): self
+    {
+        foreach($pictureFiles as $pictureFile) {
+            $picture = new Image();
+            $picture->setImageFile($pictureFile);
+            $this->addImage($picture);
+        }
+        $this->pictureFiles = $pictureFiles;
+
+    }
+        public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
@@ -733,6 +753,18 @@ class Property
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getPropertyType(): ?string
+    {
+        return $this->propertyType;
+    }
+
+    public function setPropertyType(string $propertyType): self
+    {
+        $this->propertyType = $propertyType;
 
         return $this;
     }

@@ -3,11 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Property;
+use App\Form\PropertyImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Configurator\TextEditorConfigurator;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -24,8 +27,17 @@ class PropertyCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             TextEditorField::new('description'),
-            //ImageField::new('imageFile')->setFormType(VichImageType::class),
-            AssociationField::new('propertyType'),
+            CollectionField::new('images', 'Images de bien')
+                ->setEntryType(PropertyImageType::class)
+                ->onlyOnForms(),
+            ChoiceField::new('propertyType', 'Type de bien')->setChoices(
+                [
+                    'Maison' => 'HOME',
+                    'Appartement' => 'APARTMENT',
+                    'Villa' => 'VILLA',
+                    'Garage' => 'GARAGE'
+                ]
+            ),
             ChoiceField::new('transaction', 'Type de transaction')->setChoices(
                 [
                     'Acheter' => 'PURCHASE',
@@ -35,6 +47,12 @@ class PropertyCrudController extends AbstractCrudController
                     'Vente publique' => 'PUBLIC_SALE'
                 ]
             ),
+            TextField::new('street', 'Rue'),
+            TextField::new('number', 'Numéro de la rue'),
+            TextField::new('zipCode', 'Code Postale'),
+            TextField::new('city', 'Ville'),
+            TextField::new('livingSpace', 'Surface habiable'),
+            NumberField::new('roomNumber', 'Nombre de chambre'),
             ChoiceField::new('buildingState', 'Etat du batiment')->setChoices(
                 [
                     'Rénové' => 'RENOVATED',
@@ -44,8 +62,29 @@ class PropertyCrudController extends AbstractCrudController
             ),
             ChoiceField::new('viewType', 'Type de vue')->setChoices(
                 [
-                    'vis-a-vis' => 'ROLE_ADMIN',
-                    'vue dégagé' => 'ROLE_USER'
+                    'Vis-a-vis' => 'ROLE_ADMIN',
+                    'Vue dégagé' => 'ROLE_USER'
+                ]
+            ),
+            ChoiceField::new('houseOrientation', 'Orientation de la maison')->setChoices(
+                [
+                    'Nord' => 'NORTH',
+                    'Nord-est' => 'NORTHEAST',
+                    'Ouest' => 'WEST'
+                ]
+            ),
+            ChoiceField::new('gardenOrientation', 'Orientation du jardin')->setChoices(
+                [
+                    'Nord' => 'NORTH',
+                    'Nord-est' => 'NORTHEAST',
+                    'Ouest' => 'WEST'
+                ]
+            ),
+            ChoiceField::new('energeticPerformance', 'performace énergétique ')->setChoices(
+                [
+                    'a' => 'A',
+                    'B' => 'B',
+                    'C' => 'C'
                 ]
             ),
         ];

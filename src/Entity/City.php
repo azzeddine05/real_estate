@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class City
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Property", mappedBy="city")
+     */
+    private $property;
+
+    public function __construct()
+    {
+        $this->property = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,36 @@ class City
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Property[]
+     */
+    public function getProperty(): Collection
+    {
+        return $this->property;
+    }
+
+    public function addProperty(Property $property): self
+    {
+        if (!$this->property->contains($property)) {
+            $this->property[] = $property;
+            $property->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProperty(Property $property): self
+    {
+        if ($this->property->removeElement($property)) {
+            // set the owning side to null (unless already changed)
+            if ($property->getCity() === $this) {
+                $property->setCity(null);
+            }
+        }
 
         return $this;
     }
