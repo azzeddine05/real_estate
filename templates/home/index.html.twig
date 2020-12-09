@@ -1,0 +1,269 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<div class="container-fluid">
+		<header class="row header">
+			<div class="col-md-12">
+				<div class="row plr-6">
+					<div class="col-md-12">
+						<nav class="navbar navbar-expand-md navbar-light">
+							<a class="navbar-brand" href="#">
+								<img src="./images/logo.svg" height="25" alt="">
+							</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+							<div class="collapse navbar-collapse" id="navbarToggler">
+								<ul class="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
+									<li class="nav-item active">
+										<a class="nav-link" href="#">Home
+											<span class="sr-only">(current)</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Buy</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Rent</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Sell</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Services</a>
+									</li>
+								</ul>
+								<div class="ml-md-5 my-2 my-lg-0">
+									<button class="btn btn-success bg-orange-primary text-monst-semibold signin-btn spacing-6 border-0 my-2 my-sm-0">Sign in</button>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-md-12">
+						<p class="header-title">
+							<span class="header-title-small">Let us help you to</span>
+							<br>
+							<span class="header-title-big">Choose the best</span>
+						</p>
+					</div>
+				</div>
+				<form class="bg-white search-form-container d-flex">
+					<div class="form-row justify-content-center align-items-center">
+						<div class="col-auto my-1 select-search-container">
+							<label class="mr-sm-2 select-label" for="inlineFormCustomSelect">Looking for?</label>
+							<select class="custom-select search-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+								<option selected>Rent House</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+						</div>
+						<div class="col-auto my-1 select-search-container">
+							<label class="mr-sm-2 select-label" for="inlineFormCustomSelect">Whitch City</label>
+							<select class="custom-select search-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+								<option selected>Choose...</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+						</div>
+						<div class="col-auto my-1 select-search-container">
+							<label class="mr-sm-2 select-label" for="inlineFormCustomSelect">Price</label>
+							<select class="custom-select search-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+								<option selected>Choose...</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+						</div>
+					</div>
+					<div class="m-0 p-0 ml-auto">
+						<button type="submit" class="btn btn-primary bg-orange-primary border-0 search-btn">Search</button>
+					</div>
+				</form>
+			</div>
+		</header>
+		<div class="row featured-container">
+			<div class="col-md-12 featured">
+				<h1 class="title-featured">FEATURED HOMES</h1>
+				<div class="h-separator"></div>
+				<p>
+					Lorem ipsum dolor sit amet,Stet clita kasd gubergren, no sea takimata sanctus est is the lorem ipsum dolor sit amet. sed diam nonumy ut labore et dolore s the magna aliquyam.
+				</p>
+				<div class="nav-featured plr-6">
+					<a href="#" class="active">Rent</a>
+					<a href="#">Sell</a>
+					<a href="#">Buy</a>
+				</div>
+				<div class="items plr-6">
+					<div class="card-item">
+						<img src="./images/prop1.png" alt="">
+						<div class="card-details">
+							<h4 class="title">
+								<b>Fulton Street, Apt P101, New York</b>
+							</h4>
+							<div class="d-flex pt-2 pb-2 details">
+								<div class="props">
+									<img src="./images/bed.svg" width="20"/>
+									<span class="text">2bd</span>
+									<img src="./images/bath.svg" width="20"/>
+									<span class="text">2ba</span>
+								</div>
+								<div class="price ml-auto">
+									<button class="btn text-white bg-orange-primary">$6,500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-item">
+						<img src="./images/prop2.png" alt="">
+						<div class="card-details">
+							<h4 class="title">
+								<b>Fulton Street, Apt P101, New York</b>
+							</h4>
+							<div class="d-flex pt-2 pb-2 details">
+								<div class="props">
+									<img src="./images/bed.svg" width="20"/>
+									<span class="text">2bd</span>
+									<img src="./images/bath.svg" width="20"/>
+									<span class="text">2ba</span>
+								</div>
+								<div class="price ml-auto">
+									<button class="btn text-white bg-orange-primary">$6,500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-item">
+						<img src="./images/prop3.png" alt="">
+						<div class="card-details">
+							<h4 class="title">
+								<b>Fulton Street, Apt P101, New York</b>
+							</h4>
+							<div class="d-flex pt-2 pb-2 details">
+								<div class="props">
+									<img src="./images/bed.svg" width="20"/>
+									<span class="text">2bd</span>
+									<img src="./images/bath.svg" width="20"/>
+									<span class="text">2ba</span>
+								</div>
+								<div class="price ml-auto">
+									<button class="btn text-white bg-orange-primary">$6,500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-item">
+						<img src="./images/prop4.png" alt="">
+						<div class="card-details">
+							<h4 class="title">
+								<b>Fulton Street, Apt P101, New York</b>
+							</h4>
+							<div class="d-flex pt-2 pb-2 details">
+								<div class="props">
+									<img src="./images/bed.svg" width="20"/>
+									<span class="text">2bd</span>
+									<img src="./images/bath.svg" width="20"/>
+									<span class="text">2ba</span>
+								</div>
+								<div class="price ml-auto">
+									<button class="btn text-white bg-orange-primary">$6,500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-item-empty">
+						<p>We can show adds As a post in this section Or in the post page</p>
+					</div>
+					<div class="card-item">
+						<img src="./images/prop5.png" alt="">
+						<div class="card-details">
+							<h4 class="title">
+								<b>Fulton Street, Apt P101, New York</b>
+							</h4>
+							<div class="d-flex pt-2 pb-2 details">
+								<div class="props">
+									<img src="./images/bed.svg" width="20"/>
+									<span class="text">2bd</span>
+									<img src="./images/bath.svg" width="20"/>
+									<span class="text">2ba</span>
+								</div>
+								<div class="price ml-auto">
+									<button class="btn text-white bg-orange-primary">$6,500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center align-items-center m-5">
+					<button class="btn view-all-btn bg-orange-primary">View All
+						<img width="12px" src="./images/arrow-long.svg" alt=""/>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="row services">
+			<div class="col-md-12 plr-6">
+				<div class="d-flex align-items-center">
+					<div class="h-separator"></div>
+					<h1 class="title-services">Services</h1>
+				</div>
+				<div class="d-flex flex-wrap align-items-center justify-content-center">
+					<div class="left-box">
+						<h1>We have the most listings and constant updates. So you’ll never miss out.</h1>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.
+						</p>
+						<button class="btn view-all-btn bg-orange-secondary">View All
+							<img width="12px" src="./images/arrow-long.svg" alt=""/>
+						</button>
+					</div>
+					<div class="bg-white center-box">
+						<div class="box bg-orange-primary text-white">
+							<img src="./images/icon-feather-home.svg" width="25" alt=""/><br>
+							<h6>Buy a home</h6>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem totam rem ab illo veritatis et quasi.</p>
+						</div>
+						<div class="box">
+							<img src="./images/icon-feather-key.svg" width="25" alt=""/><br>
+							<h6>Rent a home</h6>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem totam rem ab illo veritatis et quasi.</p>
+						</div>
+					</div>
+					<div class="bg-white right-box">
+						<div class="box">
+							<img src="./images/icon-material-attach-money.svg" width="25" alt=""/><br>
+							<h6>Sell a home</h6>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem totam rem ab illo veritatis et quasi.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row adds">
+			<div class="col-md-12 plr-6">
+				<div class="v-separator"></div>
+				<h1 class="adds">Adds</h1>
+				<div class="d-flex">
+					<div class="add-item flex-1 bg-orange-secondary">
+						<img src="./images/add1.png" alt="" width="100%"/>
+						<h6 class="text-white text-monst-bold">Fulton Street, Apt P101, New York</h6>
+						<button class="btn text-white bg-gray-primary ml-auto">View</button>
+					</div>
+					<div class="add-item flex-1 bg-orange-secondary">
+						<img src="./images/add2.png" alt="" width="100%"/>
+						<h6 class="text-white text-monst-bold">Fulton Street, Apt P101, New York</h6>
+						<button class="btn text-white bg-gray-primary ml-auto">View</button>
+					</div>
+					<div class="add-item flex-1 bg-orange-secondary">
+						<img src="./images/add3.png" alt="" width="100%"/>
+						<h6 class="text-white text-monst-bold">Fulton Street, Apt P101, New York</h6>
+						<button class="btn text-white bg-gray-primary ml-auto">View</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
