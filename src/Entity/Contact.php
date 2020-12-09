@@ -42,6 +42,11 @@ class Contact
      */
     private $message;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Property", inversedBy="contact")
+     */
+    private $properties;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Contact
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getProperties(): ?Property
+    {
+        return $this->properties;
+    }
+
+    public function setProperties(?Property $properties): self
+    {
+        $this->properties = $properties;
 
         return $this;
     }

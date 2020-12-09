@@ -25,6 +25,11 @@ class City
     private $name;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Province", inversedBy="cities")
+     */
+    private $province;
+
+    /**
      * @ORM\OneToMany(targetEntity="Property", mappedBy="city")
      */
     private $property;
@@ -80,4 +85,17 @@ class City
 
         return $this;
     }
+
+    public function getProvince(): ?Province
+    {
+        return $this->province;
+    }
+
+    public function setProvince(?Province $province): self
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
 }

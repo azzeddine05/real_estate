@@ -223,11 +223,22 @@ class Property
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="properties")
+     */
+    private $customer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Contact", mappedBy="properties")
+     */
+    private $contact;
+
 
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->updated_at = new \DateTime();
+        $this->contact = new ArrayCollection();
 
     }
 
@@ -765,6 +776,48 @@ class Property
     public function setPropertyType(string $propertyType): self
     {
         $this->propertyType = $propertyType;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contact[]
+     */
+    public function getContact(): Collection
+    {
+        return $this->contact;
+    }
+
+    public function addContact(Contact $contact): self
+    {
+        if (!$this->contact->contains($contact)) {
+            $this->contact[] = $contact;
+            $contact->setProperties($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): self
+    {
+        if ($this->contact->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getProperties() === $this) {
+                $contact->setProperties(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
 
         return $this;
     }

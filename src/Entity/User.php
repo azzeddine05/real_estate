@@ -42,6 +42,7 @@ class User implements UserInterface
      */
     private $customers;
 
+
     public function __construct()
     {
         $this->customers = new ArrayCollection();
