@@ -373,7 +373,7 @@ class Property
 
     public function __toString(): string
     {
-
+        return $this->getTitle();
     }
 
     public function getViewType(): ?string
@@ -720,6 +720,8 @@ class Property
             $this->addImage($picture);
         }
         $this->pictureFiles = $pictureFiles;
+
+        return $this;
 
     }
         public function getCreatedAt(): ?\DateTimeInterface
