@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error!{% endblock %}
+
+{% block body %}
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<div class="login-head bg-orange-primary"></div>
+		<p class="bg-gray-primary p-5">
+            {% block error_message %}
+                Sorry, Service unavailable please try later again... <br/> 
+                <a href="{{ path('app_home') }}" class="btn bg-orange-primary text-monst-semibold signin-btn spacing-6 border-0 my-2 my-sm-0">Home Page</a>
+            {% endblock %}
+        </p>
+	</div>
+{% endblock %}

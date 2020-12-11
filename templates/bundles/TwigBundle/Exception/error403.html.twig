@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Not Authorized!{% endblock %}
+
+{% block body %}
+	<div class="d-flex flex-column justify-content-center align-items-center h-100 p-5">
+		<div class="error-head bg-orange-primary h-25 w-100"></div>
+		<p class="bg-white p-5 text-center w-100">
+            Sorry, You are not allowed to access this page <br/> 
+            <a href="{{ path('app_home') }}" class="btn bg-orange-primary text-white text-monst-semibold signin-btn spacing-6 border-0 mt-4">Home Page</a>
+        </p>
+	</div>
+{% endblock %}

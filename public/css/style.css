@@ -394,8 +394,9 @@
 .text-small {font-size: .8rem !important;}
 .text-medium {font-size: 1.2rem !important;}
 
-.login-container {
+.app-container {
     background-color: #8E8E8E;
+    height: 100% !important;
 }
 
 .login {

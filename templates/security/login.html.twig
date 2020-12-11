@@ -7,8 +7,8 @@
 		<div class="login m-5">
 			<div class="login-head bg-orange-primary"></div>
 			<div class="login-form">
-				<a class="active" href="#">Login</a>
-				<a class="" href="#">Register</a>
+				<a class="active" href="{{ path('app_login') }}">Login</a>
+				<a href="{{ path('app_register') }}">Register</a>
 
 				{% if error %}
 					<div class="alert alert-danger mt-3">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

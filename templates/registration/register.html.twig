@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<div class="login m-5">
+			<div class="login-head bg-orange-primary"></div>
+			<div class="login-form">
+				<a href="{{ path('app_login') }}">Login</a>
+				<a class="active" href="{{ path('app_register') }}">Register</a>
+
+				{% for flashError in app.flashes('verify_email_error') %}
+					<div class="alert alert-danger mt-3" role="alert">{{ flashError }}</div>
+				{% endfor %}
+
+				{{ form_start(registrationForm, {'attr': {'class': 'pt-5'}}) }}
+					<div class="col-sm-12">
+						<label for="registration_form_email">Email</label>
+						<div class="input-group mb-4">
+							<div class="input-group-prepend">
+								<div class="input-group-text input-rounded-left">
+									<span class="oi oi-envelope-closed" title="envelope-closed" aria-hidden="true"></span>
+								</div>
+							</div>
+							<input type="email" name="registration_form[email]" value="" class="form-control input-rounded-right" id="registration_form_email" placeholder="Your Email" required autofocus>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<label for="registration_form_plainPassword_first">Password</label>
+						<div class="input-group mb-4">
+							<div class="input-group-prepend">
+								<div class="input-group-text input-rounded-left">
+									<span class="oi oi-lock-locked" title="lock-locked" aria-hidden="true"></span>
+								</div>
+							</div>
+							<input type="password" name="registration_form[plainPassword][first]" class="form-control input-rounded-right" id="registration_form_plainPassword_first" placeholder="Your password" required>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<label for="registration_form_plainPassword_second">Confirm Password</label>
+						<div class="input-group mb-4">
+							<div class="input-group-prepend">
+								<div class="input-group-text input-rounded-left">
+									<span class="oi oi-lock-locked" title="lock-locked" aria-hidden="true"></span>
+								</div>
+							</div>
+							<input type="password" name="registration_form[plainPassword][second]" class="form-control input-rounded-right" id="registration_form_plainPassword_second" placeholder="Repeat password" required>
+						</div>
+					</div>
+					{{ form_row(registrationForm.agreeTerms) }}
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-block bg-orange-primary mb-4 input-rounded text-white">Submit</button>
+					</div>
+					{{ form_row(registrationForm._token) }}
+				{{ form_end(registrationForm,{'render_rest': false}) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -96,8 +96,10 @@ class CustomAuthAuthenticator extends AbstractFormLoginAuthenticator implements 
             return new RedirectResponse($targetPath);
         }
 
-         return new RedirectResponse($this->urlGenerator->generate('admin'));
-        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        $route = 'app_home';
+        if (in_array(User::ROLE_SUPER_ADMIN, $token->getUser()->getRoles())) 'admin';
+
+        return new RedirectResponse($this->urlGenerator->generate($route));
     }
 
     protected function getLoginUrl()
