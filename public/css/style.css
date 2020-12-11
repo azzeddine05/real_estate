@@ -1,3 +1,9 @@
+.oi:empty:before {
+    position: relative;
+    bottom: 2px;
+    left: 2px;
+}
+
 .header {
     background-image: url("../images/header-bg.png"); 
     background-color: #cccccc; 
@@ -141,7 +147,7 @@
     height: 1px;
     border: 1px solid #FE8369;
     opacity: 1;
-    margin: 0 0 0 -70px;
+    margin: 0 0 0 -20px;
 }
 
 .v-separator {
@@ -388,6 +394,56 @@
 .text-small {font-size: .8rem !important;}
 .text-medium {font-size: 1.2rem !important;}
 
+.login-container {
+    background-color: #8E8E8E;
+}
+
+.login {
+    min-width: 40%;
+    font-family: 'Montserrat-Bold' !important;
+    color: #949ba1 !important;
+    background-color: #FCFCFC;
+}
+
+.login-head {
+    min-height: 70px;
+}
+
+.login a {
+    display: inline-block;
+    color: #949ba1;
+    text-decoration: none !important;
+    border-bottom: 2px solid #949ba1;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.login a:hover {
+    color: #FB6444;
+    border-bottom: 2px solid #FB6444;
+}
+
+.login a.active {
+    color: #FB6444;
+    border-bottom: 2px solid #FB6444;
+}
+
+.login-form {
+    padding: 100px 50px;
+}
+
+.input-rounded {
+    border-radius: 1.25rem !important;
+}
+
+.input-rounded-right {
+    border-radius: 0 1.25rem 1.25rem 0 !important;
+}
+
+.input-rounded-left {
+    border-radius: 1.25rem  0 0 1.25rem !important;
+}
+
 @media (max-width: 576px) { 
     .card-item {
         width: 90% !important;
@@ -412,6 +468,9 @@
     .right-box {
         width: 90% !important;
     }
+    .login {
+        min-width: 95% !important;
+    }
 }
 
 @media (max-width: 768px) { 
@@ -434,5 +493,8 @@
     }
     .right-box {
         width: 48%;
+    }
+    .login {
+        min-width: 60%;
     }
 }
