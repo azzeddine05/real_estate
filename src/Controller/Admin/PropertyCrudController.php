@@ -27,9 +27,9 @@ class PropertyCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             TextEditorField::new('description'),
-            TextField::new('price'),
-            TextField::new('priceAsking'),
-            TextField::new('title'),
+            NumberField::new('priceAsking'),
+            NumberField::new('priceEstimated'),
+            NumberField::new('area'),
             CollectionField::new('images', 'Images de bien')
                 ->setEntryType(PropertyImageType::class)
                 ->onlyOnForms(),
@@ -51,10 +51,10 @@ class PropertyCrudController extends AbstractCrudController
                 ]
             ),
             TextField::new('street', 'Rue'),
-            TextField::new('number', 'Numéro de la rue'),
-            TextField::new('zipCode', 'Code Postale'),
+            NumberField::new('number', 'Numéro de la rue'),
+            NumberField::new('zipCode', 'Code Postale'),
             AssociationField::new('city', 'Ville'),
-            TextField::new('livingSpace', 'Surface habiable'),
+            NumberField::new('livingSpace', 'Surface habiable'),
             NumberField::new('roomNumber', 'Nombre de chambre'),
             ChoiceField::new('buildingState', 'Etat du batiment')->setChoices(
                 [

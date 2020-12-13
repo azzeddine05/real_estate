@@ -86,58 +86,60 @@ class Property
     private $roomNumber;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true,  options={"default": null})
+     * @Assert\Blank()
      */
     private $bathrooms;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\Blank()
      */
     private $garden;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $gardenSize;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $yearsConstruction;
 
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $facade;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $cellar;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $garage;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $garageSize;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $parkingSpaces;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $buildingState;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $renovationYear;
 
@@ -147,12 +149,12 @@ class Property
     private $transaction;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $viewType;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $houseOrientation;
 
@@ -162,42 +164,42 @@ class Property
     private $gardenOrientation;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $CalmNeighborhood;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $energeticPerformance;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $ElectricSolarPanel;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $SolarPanelHeater;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $terrace;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private $TerraceSize;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $SwimmingPool;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $status;
 
@@ -214,12 +216,12 @@ class Property
     private $pictureFiles;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
 
@@ -267,18 +269,6 @@ class Property
     public function setCity(string $city): self
     {
         $this->city = $city;
-
-        return $this;
-    }
-
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }
@@ -454,30 +444,6 @@ class Property
     public function setRoomNumber(int $roomNumber): self
     {
         $this->roomNumber = $roomNumber;
-
-        return $this;
-    }
-
-    public function getBathrooms(): ?int
-    {
-        return $this->bathrooms;
-    }
-
-    public function setBathrooms(int $bathrooms): self
-    {
-        $this->bathrooms = $bathrooms;
-
-        return $this;
-    }
-
-    public function getGarden(): ?bool
-    {
-        return $this->garden;
-    }
-
-    public function setGarden(bool $garden): self
-    {
-        $this->garden = $garden;
 
         return $this;
     }
@@ -821,4 +787,29 @@ class Property
 
         return $this;
     }
+
+    public function getBathrooms(): ?int
+    {
+        return $this->bathrooms;
+    }
+
+    public function setBathrooms(?int $bathrooms): self
+    {
+        $this->bathrooms = $bathrooms;
+
+        return $this;
+    }
+
+    public function getGarden(): ?bool
+    {
+        return $this->garden;
+    }
+
+    public function setGarden(?bool $garden): self
+    {
+        $this->garden = $garden;
+
+        return $this;
+    }
+
 }
